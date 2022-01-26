@@ -24,6 +24,14 @@ namespace back_end.Repositories.Implementations
             { // Duplicate SKU
                 return RepositoryConstant.Error_Duplicated_SKU;
             }
+            if (product_Model_List.Count == 0)
+            { // Sets the ID number 1 if there is no data on the list
+                product_Model.Product_ID = 1;
+            }
+            else
+            { // Sets the last ID of the table
+                product_Model.Product_ID = product_Model_List.Last().Product_ID + 1;
+            }
             product_Model_List.Add(product_Model);
             // Success
             return RepositoryConstant.Success_Task;
