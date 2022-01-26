@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>back_end</name>
+    </assembly>
+    <members>
+        <member name="M:back_end.Controllers.OrderController.Create(back_end.ViewModels.OrderViewModel.CreateOrderViewModel)">
+            <summary> Creates a new order.</summary>
+            <remarks> 
+            1) Logging: No. No logger has been configured for this method.<br/>
+            2) Cache: No. Calls to this method will not be cached.<br/>
+            3) Compression: No. No compression method is used for the response.<br/>
+            </remarks>
+        </member>
+        <member name="M:back_end.Controllers.OrderController.Read">
+            <summary> Gets a list of orders.</summary>
+            <remarks> 
+            1) Logging: No. No logger has been configured for this method.<br/>
+            2) Cache: No. Calls to this method will not be cached.<br/>
+            3) Compression: No. No compression method is used for the response.<br/>
+            </remarks>
+        </member>
+        <member name="M:back_end.Controllers.OrderController.Update(back_end.ViewModels.OrderViewModel.UpdateOrderViewModel)">
+            <summary> Updates an existing order model.</summary>
+            <remarks> 
+            1) Logging: No. No logger has been configured for this method.<br/>
+            2) Cache: No. Calls to this method will not be cached.<br/>
+            3) Compression: No. No compression method is used for the response.<br/>
+            </remarks>
+        </member>
+        <member name="M:back_end.Controllers.OrderController.Delete(back_end.ViewModels.OrderViewModel.DeleteOrderViewModel)">
+            <summary> Deletes an existing order model.</summary>
+            <remarks> 
+            1) Logging: No. No logger has been configured for this method.<br/>
+            2) Cache: No. Calls to this method will not be cached.<br/>
+            3) Compression: No. No compression method is used for the response.<br/>
+            </remarks>
+        </member>
+        <member name="M:back_end.Controllers.ProductController.Create(back_end.ViewModels.ProductViewModel.CreateProductViewModel)">
+            <summary> Creates a new product.</summary>
+            <remarks> 
+            1) Logging: No. No logger has been configured for this method.<br/>
+            2) Cache: No. Calls to this method will not be cached.<br/>
+            3) Compression: No. No compression method is used for the response.<br/>
+            </remarks>
+        </member>
+        <member name="M:back_end.Controllers.ProductController.Read">
+            <summary> Gets a list of products.</summary>
+            <remarks> 
+            1) Logging: No. No logger has been configured for this method.<br/>
+            2) Cache: No. Calls to this method will not be cached.<br/>
+            3) Compression: No. No compression method is used for the response.<br/>
+            </remarks>
+        </member>
+        <member name="M:back_end.Controllers.ProductController.Update(back_end.ViewModels.ProductViewModel.UpdateProductViewModel)">
+            <summary> Updates an existing product model.</summary>
+            <remarks> 
+            1) Logging: No. No logger has been configured for this method.<br/>
+            2) Cache: No. Calls to this method will not be cached.<br/>
+            3) Compression: No. No compression method is used for the response.<br/>
+            </remarks>
+        </member>
+        <member name="M:back_end.Controllers.ProductController.Delete(back_end.ViewModels.ProductViewModel.DeleteProductViewModel)">
+            <summary> Deletes an existing product model.</summary>
+            <remarks> 
+            1) Logging: No. No logger has been configured for this method.<br/>
+            2) Cache: No. Calls to this method will not be cached.<br/>
+            3) Compression: No. No compression method is used for the response.<br/>
+            </remarks>
+        </member>
+        <member name="M:back_end.Models.OrderModel.#ctor">
+            <summary> 
+            Order model contructor with no custom variables.
+            </summary>
+        </member>
+        <member name="M:back_end.Models.OrderModel.#ctor(System.Int32,System.Int32,System.Collections.Generic.List{back_end.Models.ProductModel})">
+            <summary> 
+            Order model contructor with everything as a custom variables.
+            </summary>
+        </member>
+        <member name="M:back_end.Models.ProductModel.#ctor">
+            <summary> 
+            Message model contructor with no custom variables.
+            </summary>
+        </member>
+        <member name="M:back_end.Models.ProductModel.#ctor(System.Int32,System.String,System.String,System.Int32)">
+            <summary> 
+            Product model contructor with everything as a custom variables.
+            </summary>
+        </member>
+        <member name="M:back_end.Models.ResponseModel.#ctor">
+            <summary> 	
+            Response model contructor with no custom variables.	
+            </summary>	
+        </member>
+        <member name="M:back_end.Models.ResponseModel.#ctor(System.Int32,System.String)">
+            <summary> 	
+            Response model contructor with almost everything as a custom variable except the model.	
+            </summary>	
+        </member>
+        <member name="M:back_end.Models.ResponseModel.#ctor(System.Int32,System.String,System.Object)">
+            <summary> 	
+            Response model contructor with everything as a custom variables.	
+            </summary>	
+        </member>
+        <member name="M:back_end.Repositories.Implementations.OrderImplementation.Create(back_end.Models.OrderModel)">
+            <summary>
+            Creates a new order model on the database using required parameters.
+            </summary>
+        </member>
+        <member name="M:back_end.Repositories.Implementations.OrderImplementation.Read">
+            <summary>
+            Gets a list of products models by accessing the database.
+            </summary>
+        </member>
+        <member name="M:back_end.Repositories.Implementations.OrderImplementation.Update(back_end.Models.OrderModel)">
+            <summary>
+             Updates a order model by accessing the database using required parameters.
+            </summary>
+        </member>
+        <member name="M:back_end.Repositories.Implementations.OrderImplementation.Delete(System.Int32)">
+            <summary>
+            Deletes a order model from the database using its ID.
+            </summary>
+        </member>
+        <member name="M:back_end.Repositories.Implementations.ProductImplementation.Create(back_end.Models.ProductModel)">
+            <summary>
+            Creates a new product model on the database using required parameters.
+            </summary>
+        </member>
+        <member name="M:back_end.Repositories.Implementations.ProductImplementation.Read">
+            <summary>
+            Gets a list of products models by accessing the database.
+            </summary>
+        </member>
+        <member name="M:back_end.Repositories.Implementations.ProductImplementation.Update(back_end.Models.ProductModel)">
+            <summary>
+             Updates a product model by accessing the database using required parameters.
+            </summary>
+        </member>
+        <member name="M:back_end.Repositories.Implementations.ProductImplementation.Delete(System.Int32)">
+            <summary>
+            Deletes a product model from the database using its ID.
+            </summary>
+        </member>
+        <member name="T:back_end.ViewModels.OrderViewModel.CreateOrderViewModel">
+            <summary> 
+            Used to support REST create operations on the multimedia view. 
+            </summary>
+        </member>
+        <member name="T:back_end.ViewModels.OrderViewModel.UpdateOrderViewModel">
+            <summary> 
+            Used to support REST update operations on the multimedia view. 
+            </summary>
+        </member>
+        <member name="T:back_end.ViewModels.OrderViewModel.DeleteOrderViewModel">
+            <summary> 
+            Used to support REST delete operations on the multimedia view. 
+            </summary>
+        </member>
+        <member name="T:back_end.ViewModels.ProductViewModel.CreateProductViewModel">
+            <summary> 
+            Used to support REST create operations on the multimedia view. 
+            </summary>
+        </member>
+        <member name="T:back_end.ViewModels.ProductViewModel.UpdateProductViewModel">
+            <summary> 
+            Used to support REST update operations on the multimedia view. 
+            </summary>
+        </member>
+        <member name="T:back_end.ViewModels.ProductViewModel.DeleteProductViewModel">
+            <summary> 
+            Used to support REST delete operations on the multimedia view. 
+            </summary>
+        </member>
+    </members>
+</doc>
