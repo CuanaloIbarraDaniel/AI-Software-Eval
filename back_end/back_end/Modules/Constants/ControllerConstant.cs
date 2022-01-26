@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace back_end.Modules.Constants
+﻿namespace back_end.Modules.Constants
 {
     public class ControllerConstant
     {

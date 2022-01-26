@@ -64,7 +64,7 @@ namespace back_end.Repositories.Implementations
             product_Model_List[database_Model.Product_ID].Product_Quantity = product_Model.Product_Quantity;
             if (product_Model_List[database_Model.Product_ID].Product_Quantity <= 5)
             {
-                return RepositoryConstant.Warning_Create_Alert;   
+                return RepositoryConstant.Warning_Create_Alert;
             }
             // Success
             return RepositoryConstant.Success_Task;
