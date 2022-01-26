@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace back_end.Repositories.Interfaces
 {
-    interface IProductInterface
+    public interface IProductInterface
     {
         Task<int> Create(ProductModel product_Model);
 
