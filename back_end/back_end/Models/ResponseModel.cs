@@ -44,8 +44,6 @@ namespace back_end.Models
 
 
 
-
-
         [SwaggerSchema("Code")]
         public int Code { get; set; }
 
