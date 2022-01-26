@@ -14,6 +14,9 @@ namespace back_end.Repositories.Implementations
 
 
 
+        /// <summary>
+        /// Creates a new order model on the database using required parameters.
+        /// </summary>
         public async Task<int> Create(OrderModel order_Model)
         {
             if (order_Model_List.Count == 0)
@@ -29,6 +32,11 @@ namespace back_end.Repositories.Implementations
             return RepositoryConstant.Success_Task;
         }
 
+
+
+        /// <summary>
+        /// Gets a list of products models by accessing the database.
+        /// </summary>
         public async Task<List<OrderModel>> Read()
         {
             return order_Model_List;
@@ -36,9 +44,12 @@ namespace back_end.Repositories.Implementations
 
 
 
+        /// <summary>
+        ///  Updates a order model by accessing the database using required parameters.
+        /// </summary>
         public async Task<int> Update(OrderModel order_Model)
         {
-            ProductModel database_Model = order_Model_List.Find(x => x.Order_ID == order_Model.Order_ID);
+            OrderModel database_Model = order_Model_List.Find(x => x.Order_ID == order_Model.Order_ID);
             if (database_Model.Product_ID == 0)
             { // Not Found
                 return RepositoryConstant.Warning_Not_Found;
@@ -57,6 +68,9 @@ namespace back_end.Repositories.Implementations
 
 
 
+        /// <summary>
+        /// Deletes a order model from the database using its ID.
+        /// </summary>
         public async Task<int> Delete(int order_ID)
         {
             OrderModel database_Model = order_Model_List.Find(x => x.Order_ID == order_ID);
@@ -64,7 +78,7 @@ namespace back_end.Repositories.Implementations
             { // Not Found
                 return RepositoryConstant.Warning_Not_Found;
             }
-            product_Model_List.RemoveAt(product_ID);
+            order_Model_List.RemoveAt(order_ID);
             // Success
             return RepositoryConstant.Success_Task;
         }
