@@ -18,7 +18,7 @@ namespace back_end.Models
 
 
         /// <summary> 
-        /// Product model contructor with everything as custom variables.
+        /// Product model contructor with everything as a custom variables.
         /// </summary>
         public ProductModel(int product_ID, string product_SKU, string product_Name, int product_Quantity)
         {

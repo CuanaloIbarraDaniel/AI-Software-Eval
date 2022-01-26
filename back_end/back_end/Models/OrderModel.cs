@@ -18,7 +18,7 @@ namespace back_end.Models
 
 
         /// <summary> 
-        /// Order model contructor with everything as custom variables.
+        /// Order model contructor with everything as a custom variables.
         /// </summary>
         public OrderModel(int order_ID, int order_Status, List<ProductModel> order_Product_List)
         {
