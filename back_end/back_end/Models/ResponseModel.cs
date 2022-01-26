@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Swashbuckle.AspNetCore.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -46,15 +47,12 @@ namespace back_end.Models
 
 
         [SwaggerSchema("Code")]
-        [Display(Name = "Code")]
-        public virtual int Code { get; set; }
+        public int Code { get; set; }
 
         [SwaggerSchema("Description")]
-        [Display(Name = "Description")]
-        public virtual string Description { get; set; }
+        public string Description { get; set; }
 
-        [SwaggerSchema("Account ID")]
-        [Display(Name = "Account ID")]
-        public virtual object Model { get; set; }
+        [SwaggerSchema("Model")]
+        public object Model { get; set; }
     }
 }
