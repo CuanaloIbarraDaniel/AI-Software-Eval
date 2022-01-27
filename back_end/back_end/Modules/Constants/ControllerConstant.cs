@@ -2,7 +2,15 @@
 {
     public class ControllerConstant
     {
-        public const string Status200OK = "A new object has been successfully created by the server on the database.";
+        public const string Status200OKCreate = "A new object has been successfully created by the server on the database.";
+
+        public const string Status200OKRead = "The server has successfully retrieved data present on the database.";
+
+        public const string Status200OKUpdated = "The information on the database has been updated by the server.";
+
+        public const string Status200OKDeleted = "An object has successfully been deleted by the server.";
+
+        public const string Status201Created = "An additional order has been placed to fullfill the order.";
 
         public const string Status400BadRequest = "The data sent to this method does not satisfy the required validations.";
 
