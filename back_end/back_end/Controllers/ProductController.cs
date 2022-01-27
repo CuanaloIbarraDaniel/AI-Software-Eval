@@ -50,10 +50,6 @@ namespace back_end.Controllers
                 {
                     return StatusCode(StatusCodes.Status400BadRequest, new ResponseModel(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequestDuplicatedSKU, false));
                 }
-                else // Internal server error
-                {
-                    return StatusCode(StatusCodes.Status500InternalServerError, new ResponseModel(StatusCodes.Status500InternalServerError, ControllerConstant.Status500InternalServerError, false));
-                }
             }
             return StatusCode(StatusCodes.Status400BadRequest, new ResponseModel(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequest, ModelState));
         }
@@ -80,7 +76,7 @@ namespace back_end.Controllers
             }
             else
             {
-                return StatusCode(StatusCodes.Status404NotFound, new ResponseModel(StatusCodes.Status404NotFound, ControllerConstant.Status404NotFound));
+                return StatusCode(StatusCodes.Status404NotFound, new ResponseModel(StatusCodes.Status404NotFound, ControllerConstant.Status404NotFound, false));
             }
         }
 

@@ -44,10 +44,6 @@ namespace back_end.Controllers
                 { // Returns a ok status code if an order has been deleted
                     return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, true));
                 }
-                else // Internal server error
-                {
-                    return StatusCode(StatusCodes.Status500InternalServerError, new ResponseModel(StatusCodes.Status500InternalServerError, ControllerConstant.Status500InternalServerError, false));
-                }
             }
             return StatusCode(StatusCodes.Status400BadRequest, new ResponseModel(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequest, ModelState));
         }
@@ -68,13 +64,13 @@ namespace back_end.Controllers
         public async Task<IActionResult> Read()
         {
             List<OrderModel> interface_Response = await order_Interface.Read();
-            if (interface_Response[0].Order_ID == 0)
+            if (interface_Response.Count != 0)
             { // Returns a ok status code if an order has been deleted
-                return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, true));
+                return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, interface_Response));
             }
             else
             {
-                return StatusCode(StatusCodes.Status404NotFound, new ResponseModel(StatusCodes.Status404NotFound, ControllerConstant.Status404NotFound));
+                return StatusCode(StatusCodes.Status404NotFound, new ResponseModel(StatusCodes.Status404NotFound, ControllerConstant.Status404NotFound, false));
             }
         }
 
