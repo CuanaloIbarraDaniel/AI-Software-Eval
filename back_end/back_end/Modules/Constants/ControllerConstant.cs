@@ -6,6 +6,8 @@
 
         public const string Status400BadRequest = "The data sent to this method does not satisfy the required validations.";
 
+        public const string Status400BadRequestDuplicatedSKU = "An identical SKU has been found by the server.";
+
         public const string Status401Unauthorized = "You do not count with the necessary permissions to access this resource.";
 
         public const string Status403Forbidden = "Access to this method was blocked by the server.";
