@@ -1,10 +1,10 @@
 <template>
   <div class="row" :key="componentKey">
-    <div v-for="Order_List in GetOrderByStatus(status_ID)" :key="Order_List.Order_ID" class="col-sm-6">
+    <div v-for="Order_List in GetOrderByStatus(status_ID)" :key="Order_List.order_ID" class="col-sm-6">
       <div class="card margin-all">
         <div class="row">
           <div class="col-8">
-            <h3 class="text-start" style="padding-top: 15px; padding-left: 15px">Orden #{{Order_List.Order_ID}}</h3>
+            <h3 class="text-start" style="padding-top: 15px; padding-left: 15px">Orden #{{GetFormatedID(Order_List.order_ID)}}</h3>
           </div>
           <div class="col-4">
             <span class="align-middle badge bg-secondary span-class">{{
@@ -14,20 +14,20 @@
         </div>
         <hr />
         <div class="row">
-          <div class="col-8" style="margin-left: 15px; text-align: left">
+          <div class="col-8" style="margin-left: 15px; text-align: left; min-height: 120px;">
             <h4 style="text-decoration: underline; text-decoration-color: grey">
               Productos
             </h4>
-            <ul v-for="Product_List in Order_List.Order_Product_List" :key="Product_List" style="list-style-type: none">
-              <li>{{Product_List.Product_Name}} - {{Product_List.Product_Quantity}}</li>
+            <ul v-for="Product_List in Order_List.order_Product_List" :key="Product_List" style="list-style-type: none;">
+              <li>{{Product_List.product_Name}} - {{Product_List.product_Quantity}}</li>
             </ul>
           </div>
           <div class="col-3 d-grid">
-            <button v-if="next_Title" @click="SetOrderStatus(Order_List.Order_ID, Order_List.Order_Status)" class="btn d-md-block btn-outline-secondary product-button"><i class="bi bi-play-fill" style="margin-right: 7px"></i>{{ next_Title }}
+            <button v-if="next_Title" @click="SetOrderStatus(Order_List.order_ID, Order_List.order_Status)" class="btn d-md-block btn-outline-secondary product-button"><i class="bi bi-play-fill" style="margin-right: 7px"></i>{{ next_Title }}
             </button>
             <br />
-            <button v-if="next_Title" @click="SetOrderStatus(Order_List.Order_ID, 5)" class="btn btn-outline-secondary product-button alignBottom" style="margin-bottom: 20px"><i class="bi bi-trash" style="margin-right: 7px"></i>Cancel</button>
-            <button v-if="!next_Title" @click="SetOrderStatus(Order_List.Order_ID, 6)" class="btn btn-outline-secondary product-button alignBottom" style="margin-bottom: 20px"><i class="bi bi-trash" style="margin-right: 7px"></i>Delete</button>
+            <button v-if="next_Title" @click="SetOrderStatus(Order_List.order_ID, 5)" class="btn btn-outline-secondary product-button alignBottom" style="margin-bottom: 20px"><i class="bi bi-trash" style="margin-right: 7px"></i>Cancel</button>
+            <button v-if="!next_Title" @click="SetOrderStatus(Order_List.order_ID, 6)" class="btn btn-outline-secondary product-button alignBottom" style="margin-bottom: 20px"><i class="bi bi-trash" style="margin-right: 7px"></i>Delete</button>
           </div>
         </div>
       </div>
@@ -52,11 +52,10 @@ export default {
   methods: {
     GetOrderByStatus(order_Status) { return this.$store.getters.GetOrderByStatus(order_Status) },  
 
-    SetOrderStatus(order_ID, order_Status) { this.$store.commit('UPDATE_ORDER_STATUS', { order_ID, order_Status }); this.componentKey += 1; },  
+    SetOrderStatus(order_ID, order_Status) { this.$store.dispatch('OrderUpdate', { order_ID, order_Status }); this.componentKey += 1; },  
+
+    GetFormatedID(order_Status) { return this.$store.getters.GetFormatedID(order_Status) },  
   },
-  computed: {
-      
-  }
 };
 </script>
 

@@ -1,5 +1,6 @@
 <template>
   <div class="container-fluid" style="width: 90%">
+    <ModalComponent />
     <ul class="nav nav-tabs">
       <li class="nav-item">
         <a href="#PE" class="nav-link active" data-bs-toggle="tab">Pending</a>
@@ -20,27 +21,27 @@
     <div class="tab-content">
       <div class="tab-pane fade show active" id="PE">
         <div class="card overflow-tab">
-          <Order current_title="Pending" next_Title="In Process" status_ID="1" />
+          <OrderComponent current_title="Pending" next_Title="In Process" status_ID="1" />
         </div>
       </div>
       <div class="tab-pane fade" id="IP">
         <div class="card overflow-tab">
-          <Order current_title="In Process" next_Title="Completed" status_ID="2" />
+          <OrderComponent current_title="In Process" next_Title="Completed" status_ID="2" />
         </div>
       </div>
       <div class="tab-pane fade" id="CO">
         <div class="card overflow-tab">
-          <Order current_title="Completed" next_Title="Delivered" status_ID="3" />
+          <OrderComponent current_title="Completed" next_Title="Delivered" status_ID="3" />
         </div>
       </div>
       <div class="tab-pane fade" id="DE">
         <div class="card overflow-tab">
-          <Order current_title="Delivered" next_Title="" status_ID="4" />
+          <OrderComponent current_title="Delivered" next_Title="" status_ID="4" />
         </div>
       </div>
       <div class="tab-pane fade" id="CA">
         <div class="card overflow-tab">
-          <Order current_title="Canceled" next_Title="" status_ID="5" />
+          <OrderComponent current_title="Canceled" next_Title="" status_ID="5" />
         </div>
       </div>
     </div>
@@ -48,12 +49,24 @@
 </template>
 
 <script>
-import Order from "./components/Order.vue";
+import { Modal } from 'bootstrap'
+import OrderComponent from "./components/OrderComponent.vue";
+import ModalComponent from "./components/ModalComponent.vue";
 
 export default {
   name: "App",
   components: {
-    Order,
+    OrderComponent,
+    ModalComponent,
+  },
+  mounted() {
+    setTimeout(() => {
+        if (this.$store.getters.GetNewOrder().length > 0) {
+          new Modal(document.getElementById("OrderAlertModal"), {}).show() 
+        }
+      }, 1000),
+      
+      this.$store.dispatch("OrderGetAll");
   },
 };
 </script>
