@@ -38,7 +38,17 @@ namespace back_end.Repositories.Implementations
         /// </summary>
         public async Task<List<OrderModel>> Read()
         {
-            return order_Model_List;
+            List<OrderModel> current_Model_List = new List<OrderModel>();
+            for (int A1 = 0; A1 < order_Model_List.Count; A1++)
+            {
+                OrderModel order_Model = new OrderModel();
+                order_Model.Order_ID = order_Model_List[A1].Order_ID;
+                order_Model.Order_Product_List = order_Model_List[A1].Order_Product_List;
+                order_Model.Order_Status = order_Model_List[A1].Order_Status;
+                current_Model_List.Add(order_Model);
+            }
+            order_Model_List.FindAll(x => x.Order_Status == 0).ForEach(x => x.Order_Status = 1);
+            return current_Model_List;
         }
 
 
