@@ -1,118 +1,85 @@
 import { createStore } from 'vuex'
+import axios from 'axios'
 const URL = "http://localhost:5000/api/";
 
 export default createStore({
   state: {
-    order_Model_List: [{
-      Order_ID: 1,
-      Order_Status: 1,
-      Order_Product_List: [{
-        Product_ID: 1,
-        Product_SKU: "Soda SKU",
-        Product_Name: "Soda",
-        Product_Quantity: 15,
-      }, {
-        Product_ID: 2,
-        Product_SKU: "Late SKU",
-        Product_Name: "Late",
-        Product_Quantity: 12,
-      }, {
-        Product_ID: 3,
-        Product_SKU: "Hamburger SKU",
-        Product_Name: "Hamburger",
-        Product_Quantity: 5,
-      }]
-    }, {
-      Order_ID: 2,
-      Order_Status: 1,
-      Order_Product_List: [{
-        Product_ID: 4,
-        Product_SKU: "Meat SKU",
-        Product_Name: "Meat",
-        Product_Quantity: 4,
-      }, {
-        Product_ID: 5,
-        Product_SKU: "Salad SKU",
-        Product_Name: "Salad",
-        Product_Quantity: 8,
-      }, {
-        Product_ID: 6,
-        Product_SKU: "Taco SKU",
-        Product_Name: "Taco",
-        Product_Quantity: 12,
-      }]
-    }, {
-      Order_ID: 3,
-      Order_Status: 1,
-      Order_Product_List: [{
-        Product_ID: 4,
-        Product_SKU: "Milk SKU",
-        Product_Name: "Milk",
-        Product_Quantity: 4,
-      }, {
-        Product_ID: 5,
-        Product_SKU: "Dorito SKU",
-        Product_Name: "Dorito",
-        Product_Quantity: 8,
-      }, {
-        Product_ID: 3,
-        Product_SKU: "Arizona SKU",
-        Product_Name: "Arizona",
-        Product_Quantity: 5,
-      }]
-    }]
+    order_Model_List: [],
+    number_Zeroes: 5
   },
   mutations: {
     UPDATE_ORDER_STATUS(state, { order_ID, order_Status }) {
-      var order_Index = state.order_Model_List.findIndex((x => x.Order_ID === order_ID));
-      switch (order_Status) {
-        case 1: // Set to in proccess
-          state.order_Model_List[order_Index].Order_Status = 2;
+      var order_Index = state.order_Model_List.findIndex((x => x.order_ID === order_ID));
+      switch(order_Status) {
+        case 0:
+          state.order_Model_List[order_Index].order_Status = 2;
           break;
-        case 2: // Set to completed
-          state.order_Model_List[order_Index].Order_Status = 3;
+        case 1:
+          state.order_Model_List[order_Index].order_Status = 2;
           break;
-        case 3: // Set to delivered
-          state.order_Model_List[order_Index].Order_Status = 4;
+        default:
+          state.order_Model_List[order_Index].order_Status = order_Status;
           break;
-        case 5: // Set to canceled
-          state.order_Model_List[order_Index].Order_Status = 5;
-          break;
-        case 6: // Set to deleted
-          state.order_Model_List[order_Index].Order_Status = 6;
-          break;
-
       }
     },
 
     ADD_ORDER_LIST(state, order_List) {
       state.order_Model_List = order_List;
     }
-
-
   },
   actions: {
-    GetAll() {
-      // Make a request for a user with a given ID
-      axios.get(URL + "Order/GetAll")
+    OrderGetAll({ commit }) {
+      axios.get(URL + "Order/Read")
         .then(function (response) { // handle success
-          console.log(response);
+          commit('ADD_ORDER_LIST', response.data.model)
         })
         .catch(function (error) { // handle error
           console.warn(error);
         })
-        .then(function () { // always executed
-        });
-    }
+    },
+
+    OrderUpdate({ commit }, { order_ID, order_Status }) {
+      // Upgrade the status if the order is not set to canceled or deleted
+      if (order_Status != 5 && order_Status != 6) {
+        if (order_Status == 0) {
+          order_Status += 1;
+        }
+        order_Status += 1;
+      }
+      // Updates the order
+      axios.put(URL + "Order/Update", {
+        order_ID: order_ID,
+        order_Status: order_Status,
+      })
+      .then(function () { // handle success
+        commit('UPDATE_ORDER_STATUS', { order_ID, order_Status })
+      })
+      .catch(function (error) { // handle error
+        console.warn(error);
+      })
+    },
   },
   getters: {
     GetOrderByStatus: (state) => (order_Status) => {
-      if (order_Status == 0) { // Order is new    
-        return state.order_Model_List.filter((x) => x.Order_Status === 0 && x.Order_Status === 1)
+      if (order_Status == 1) {
+        return state.order_Model_List.filter((x) => x.order_Status <= order_Status)
       }
       else {
-        return state.order_Model_List.filter((x) => x.Order_Status == order_Status)
+        return state.order_Model_List.filter((x) => x.order_Status == order_Status)
       }
+    },
+
+    GetFormatedID: (state) => (order_ID) => {
+      const num_Zeroes = state.number_Zeroes - order_ID.toString().length + 1;
+      if (num_Zeroes > 0) {
+        return Array(+num_Zeroes).join("0") + order_ID;
+      }
+      return order_ID
+    },
+
+
+    GetNewOrder: (state) => () => {
+      return state.order_Model_List.filter((x => x.order_Status == 0));
     }
   }
 })
