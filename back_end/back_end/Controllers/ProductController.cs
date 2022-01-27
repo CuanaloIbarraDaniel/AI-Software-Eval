@@ -34,7 +34,7 @@ namespace back_end.Controllers
         /// </remarks>
         [HttpPost("Create"), ApiExplorerSettings(GroupName = "v1")]
         [Consumes("application/json"), Produces("application/json")]
-        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OK, typeof(ResponseModel))]
+        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OKCreate, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequest, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, ControllerConstant.Status500InternalServerError, typeof(ResponseModel))]
         public async Task<IActionResult> Create([FromBody] CreateProductViewModel create_Product_View_Model)
@@ -44,7 +44,7 @@ namespace back_end.Controllers
                 int interface_Response = await product_Interface.Create(create_Product_View_Model);
                 if (interface_Response == RepositoryConstant.Success_Task)
                 { // Returns a ok status code if an product has been deleted
-                    return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, true));
+                    return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OKCreate, true));
                 }
                 else if (interface_Response == RepositoryConstant.Error_Duplicated_SKU) // The value is duplicated
                 {
@@ -64,7 +64,7 @@ namespace back_end.Controllers
         /// </remarks>
         [HttpGet("Read"), ApiExplorerSettings(GroupName = "v1")]
         [Consumes("application/json"), Produces("application/json")]
-        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OK, typeof(ResponseModel))]
+        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OKRead, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status404NotFound, ControllerConstant.Status404NotFound, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, ControllerConstant.Status500InternalServerError, typeof(ResponseModel))]
         public async Task<IActionResult> Read()
@@ -72,7 +72,7 @@ namespace back_end.Controllers
             List<ProductModel> interface_Response = await product_Interface.Read();
             if (interface_Response.Count != 0)
             { // Returns a ok status code if an product has been deleted
-                return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, interface_Response));
+                return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OKRead, interface_Response));
             }
             else
             {
@@ -90,7 +90,8 @@ namespace back_end.Controllers
         /// </remarks>
         [HttpPut("Update"), ApiExplorerSettings(GroupName = "v1")]
         [Consumes("application/json"), Produces("application/json")]
-        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OK, typeof(ResponseModel))]
+        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OKUpdated, typeof(ResponseModel))]
+        [SwaggerResponse(StatusCodes.Status201Created, ControllerConstant.Status201Created, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequest, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status404NotFound, ControllerConstant.Status404NotFound, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, ControllerConstant.Status500InternalServerError, typeof(ResponseModel))]
@@ -101,7 +102,16 @@ namespace back_end.Controllers
                 int interface_Response = await product_Interface.Update(update_Product_View_Model);
                 if (interface_Response == RepositoryConstant.Success_Task)
                 { // Returns a ok status code if an product has been deleted
-                    return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, true));
+                    return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OKUpdated, true));
+                }
+                else if (interface_Response == RepositoryConstant.Warning_Create_Alert)
+                {
+                    OrderModel order_Model = new OrderModel();
+                    order_Model.Order_Status = 0;
+                    update_Product_View_Model.Product_Quantity = 25;
+                    order_Model.Order_Product_List.Add(update_Product_View_Model);
+                    await order_Interface.Create(order_Model);
+                    return StatusCode(StatusCodes.Status201Created, new ResponseModel(StatusCodes.Status201Created, ControllerConstant.Status201Created, true));
                 }
                 else
                 { // Returns a not found status code if no product with that id was found
@@ -122,7 +132,7 @@ namespace back_end.Controllers
         /// </remarks>
         [HttpDelete("Delete"), ApiExplorerSettings(GroupName = "v1")]
         [Consumes("application/json"), Produces("application/json")]
-        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OK, typeof(ResponseModel))]
+        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OKDeleted, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequest, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status404NotFound, ControllerConstant.Status404NotFound, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, ControllerConstant.Status500InternalServerError, typeof(ResponseModel))]
@@ -133,7 +143,7 @@ namespace back_end.Controllers
                 int interface_Response = await product_Interface.Delete(delete_Product_View_Model.Product_ID);
                 if (interface_Response == RepositoryConstant.Success_Task)
                 { // Returns a ok status code if an product has been deleted
-                    return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, true));
+                    return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OKDeleted, true));
                 }
                 else
                 { // Returns a not found status code if no product with that id was found
