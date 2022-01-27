@@ -13,7 +13,7 @@ namespace back_end.ViewModels
         public class CreateOrderViewModel : OrderModel
         {
             [Required]
-            [Range(1, int.MaxValue)]
+            [Range(0, int.MaxValue)]
             public override int Order_Status { get; set; }
         }
 
@@ -29,7 +29,7 @@ namespace back_end.ViewModels
             public override int Order_ID { get; set; }
 
             [Required]
-            [Range(1, int.MaxValue)]
+            [Range(0, int.MaxValue)]
             public override int Order_Status { get; set; }
 
             public override List<ProductModel> Order_Product_List { get; set; }

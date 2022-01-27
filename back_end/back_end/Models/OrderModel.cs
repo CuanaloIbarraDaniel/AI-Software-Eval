@@ -11,7 +11,7 @@ namespace back_end.Models
         public OrderModel()
         {
             Order_ID = 0;
-            Order_Status = 0;
+            Order_Status = -1;
             Order_Product_List = new List<ProductModel>();
         }
 
