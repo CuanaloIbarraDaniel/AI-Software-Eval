@@ -25,6 +25,11 @@ namespace back_end
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Add Cors Configuration
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: "VuexAxiosCors", builder => { builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin(); });
+            });
             // (RECA / JSCO) Sets the response caching and json configuration
             services.AddMvc(Options =>
             {
@@ -91,6 +96,8 @@ namespace back_end
             app.UseStaticFiles();
             // Where to send the data
             app.UseRouting();
+            // Add CORS
+            app.UseCors("VuexAxiosCors");
             // Endpoint configuration
             app.UseEndpoints(endpoints =>
             {
