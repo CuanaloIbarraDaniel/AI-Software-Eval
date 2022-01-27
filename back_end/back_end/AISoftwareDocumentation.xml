@@ -103,6 +103,11 @@
             Response model contructor with everything as a custom variables.	
             </summary>	
         </member>
+        <member name="M:back_end.Models.ResponseModel.#ctor(System.Int32,System.String,Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)">
+            <summary> 	
+            Response model contructor with everything as a custom variables.	
+            </summary>	
+        </member>
         <member name="M:back_end.Repositories.Implementations.OrderImplementation.Create(back_end.Models.OrderModel)">
             <summary>
             Creates a new order model on the database using required parameters.

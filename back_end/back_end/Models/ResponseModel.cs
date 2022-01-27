@@ -1,4 +1,6 @@
-﻿using Swashbuckle.AspNetCore.Annotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Swashbuckle.AspNetCore.Annotations;
+using System.Linq;
 
 namespace back_end.Models
 {
@@ -36,6 +38,19 @@ namespace back_end.Models
             Code = code;
             Description = description;
             Model = model;
+        }
+
+
+
+
+        /// <summary> 	
+        /// Response model contructor with everything as a custom variables.	
+        /// </summary>	
+        public ResponseModel(int code, string description, ModelStateDictionary model)
+        {
+            Code = code;
+            Description = description;
+            Model = model.Keys.Select(k => model[k].Errors).First().Select(e => e.ErrorMessage); ;
         }
 
 
