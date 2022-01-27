@@ -48,17 +48,17 @@ namespace back_end.Repositories.Implementations
         /// </summary>
         public async Task<int> Update(OrderModel order_Model)
         {
-            OrderModel database_Model = order_Model_List.Find(x => x.Order_ID == order_Model.Order_ID);
-            if (database_Model != null)
+            int database_Model = order_Model_List.FindIndex(x => x.Order_ID == order_Model.Order_ID);
+            if (database_Model == -1)
             { // Not Found
                 return RepositoryConstant.Warning_Not_Found;
             }
-            order_Model_List[database_Model.Order_ID].Order_Status = order_Model.Order_Status;
+            order_Model_List[database_Model].Order_Status = order_Model.Order_Status;
             if (order_Model.Order_Product_List.Count > 0)
             { // Checks if there is a list on the update model
                 if (order_Model.Order_Product_List[0].Product_ID == 0)
                 { // Checks if it is a valid list
-                    order_Model_List[database_Model.Order_ID].Order_Product_List = order_Model.Order_Product_List;
+                    order_Model_List[database_Model].Order_Product_List = order_Model.Order_Product_List;
                 }
             }
             // Success
@@ -72,12 +72,12 @@ namespace back_end.Repositories.Implementations
         /// </summary>
         public async Task<int> Delete(int order_ID)
         {
-            OrderModel database_Model = order_Model_List.Find(x => x.Order_ID == order_ID);
-            if (database_Model != null)
+            int database_Model = order_Model_List.FindIndex(x => x.Order_ID == order_ID);
+            if (database_Model == -1)
             { // Not Found
                 return RepositoryConstant.Warning_Not_Found;
             }
-            order_Model_List.RemoveAt(order_ID);
+            order_Model_List.RemoveAt(database_Model);
             // Success
             return RepositoryConstant.Success_Task;
         }

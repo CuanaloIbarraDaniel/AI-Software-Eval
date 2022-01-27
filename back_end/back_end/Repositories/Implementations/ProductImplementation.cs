@@ -54,15 +54,15 @@ namespace back_end.Repositories.Implementations
         /// </summary>
         public async Task<int> Update(ProductModel product_Model)
         {
-            ProductModel database_Model = product_Model_List.Find(x => x.Product_ID == product_Model.Product_ID);
-            if (database_Model != null)
+            int database_Model = product_Model_List.FindIndex(x => x.Product_ID == product_Model.Product_ID);
+            if (database_Model == -1)
             { // Not Found
                 return RepositoryConstant.Warning_Not_Found;
             }
-            product_Model_List[database_Model.Product_ID].Product_Name = product_Model.Product_Name;
-            product_Model_List[database_Model.Product_ID].Product_SKU = product_Model.Product_SKU;
-            product_Model_List[database_Model.Product_ID].Product_Quantity = product_Model.Product_Quantity;
-            if (product_Model_List[database_Model.Product_ID].Product_Quantity <= 5)
+            product_Model_List[database_Model].Product_Name = product_Model.Product_Name;
+            product_Model_List[database_Model].Product_SKU = product_Model.Product_SKU;
+            product_Model_List[database_Model].Product_Quantity = product_Model.Product_Quantity;
+            if (product_Model_List[database_Model].Product_Quantity <= 5)
             {
                 return RepositoryConstant.Warning_Create_Alert;
             }
@@ -77,12 +77,12 @@ namespace back_end.Repositories.Implementations
         /// </summary>
         public async Task<int> Delete(int product_ID)
         {
-            ProductModel database_Model = product_Model_List.Find(x => x.Product_ID == product_ID);
-            if (database_Model != null)
+            int database_Model = product_Model_List.FindIndex(x => x.Product_ID == product_ID);
+            if (database_Model == -1)
             { // Not Found
                 return RepositoryConstant.Warning_Not_Found;
             }
-            product_Model_List.RemoveAt(product_ID);
+            product_Model_List.RemoveAt(database_Model);
             // Success
             return RepositoryConstant.Success_Task;
         }
