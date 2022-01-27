@@ -18,7 +18,7 @@ namespace back_end.ViewModels
             public override string Product_Name { get; set; }
 
             [Required]
-            [Range(0, int.MaxValue)]
+            [Range(1, int.MaxValue)]
             public override int Product_Quantity { get; set; }
         }
 
@@ -30,7 +30,7 @@ namespace back_end.ViewModels
         public class UpdateProductViewModel : ProductModel
         {
             [Required]
-            [Range(0, int.MaxValue)]
+            [Range(1, int.MaxValue)]
             public override int Product_ID { get; set; }
 
             [Required]
@@ -40,7 +40,7 @@ namespace back_end.ViewModels
             public override string Product_Name { get; set; }
 
             [Required]
-            [Range(0, int.MaxValue)]
+            [Range(1, int.MaxValue)]
             public override int Product_Quantity { get; set; }
         }
 
@@ -52,7 +52,7 @@ namespace back_end.ViewModels
         public class DeleteProductViewModel : ProductModel
         {
             [Required]
-            [Range(0, int.MaxValue)]
+            [Range(1, int.MaxValue)]
             public override int Product_ID { get; set; }
         }
     }
