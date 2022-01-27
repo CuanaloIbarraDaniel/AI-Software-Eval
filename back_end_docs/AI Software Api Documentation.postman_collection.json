@@ -1,0 +1,1332 @@
+{
+	"info": {
+		"_postman_id": "b8091bb4-d6ca-4c7b-9194-c9a7a0c7ca72",
+		"name": "AI Software Api Documentation",
+		"description": "AI Software Web Api Documentation for ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "Creates a new order.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"order_Status\": 0,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": 0,\n            \"product_SKU\": \"\",\n            \"product_Name\": \"\",\n            \"product_Quantity\": 0\n        },\n        {\n            \"product_ID\": 0,\n            \"product_SKU\": \"\",\n            \"product_Name\": \"\",\n            \"product_Quantity\": 0\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Order/Create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Order",
+										"Create"
+									]
+								},
+								"description": "1) Logging: No. No logger has been configured for this method.<br />\r\n2) Cache: No. Calls to this method will not be cached.<br />\r\n3) Compression: No. No compression method is used for the response.<br />"
+							},
+							"response": [
+								{
+									"name": "A new object has been successfully created by the server on the database.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"order_Status\": 1865273892,\n    \"order_ID\": 88674857,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": 33171833,\n            \"product_SKU\": \"officia\",\n            \"product_Name\": \"Lorem ex\",\n            \"product_Quantity\": 65289951\n        },\n        {\n            \"product_ID\": -59838427,\n            \"product_SKU\": \"pariatur veniam ad nisi comm\",\n            \"product_Name\": \"commodo\",\n            \"product_Quantity\": -86929169\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "The data sent to this method does not satisfy the required validations.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"order_Status\": 1865273892,\n    \"order_ID\": 88674857,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": 33171833,\n            \"product_SKU\": \"officia\",\n            \"product_Name\": \"Lorem ex\",\n            \"product_Quantity\": 65289951\n        },\n        {\n            \"product_ID\": -59838427,\n            \"product_SKU\": \"pariatur veniam ad nisi comm\",\n            \"product_Name\": \"commodo\",\n            \"product_Quantity\": -86929169\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Create"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "Serveral internal errors were encountered while completing the tasks",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"order_Status\": 1865273892,\n    \"order_ID\": 88674857,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": 33171833,\n            \"product_SKU\": \"officia\",\n            \"product_Name\": \"Lorem ex\",\n            \"product_Quantity\": 65289951\n        },\n        {\n            \"product_ID\": -59838427,\n            \"product_SKU\": \"pariatur veniam ad nisi comm\",\n            \"product_Name\": \"commodo\",\n            \"product_Quantity\": -86929169\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Create"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "Gets a list of orders.",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Order/Read",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Order",
+										"Read"
+									]
+								},
+								"description": "1) Logging: No. No logger has been configured for this method.<br />\r\n2) Cache: No. Calls to this method will not be cached.<br />\r\n3) Compression: No. No compression method is used for the response.<br />"
+							},
+							"response": [
+								{
+									"name": "The server has successfully retrieved data present on the database.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Read",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Read"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "The request to the database has returned no data.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Read",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Read"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "Serveral internal errors were encountered while completing the tasks",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Read",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Read"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "Updates an existing order model.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"order_ID\": 0,\n    \"order_Status\": 0,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": 0,\n            \"product_SKU\": \"\",\n            \"product_Name\": \"\",\n            \"product_Quantity\": 0\n        },\n        {\n            \"product_ID\": 0,\n            \"product_SKU\": \"\",\n            \"product_Name\": \"\",\n            \"product_Quantity\": 0\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Order/Update",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Order",
+										"Update"
+									]
+								},
+								"description": "1) Logging: No. No logger has been configured for this method.<br />\r\n2) Cache: No. Calls to this method will not be cached.<br />\r\n3) Compression: No. No compression method is used for the response.<br />"
+							},
+							"response": [
+								{
+									"name": "The information on the database has been updated by the server.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"order_ID\": 2147291736,\n    \"order_Status\": 451581725,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": -53621571,\n            \"product_SKU\": \"esse id ut \",\n            \"product_Name\": \"est elit r\",\n            \"product_Quantity\": -60366077\n        },\n        {\n            \"product_ID\": 73221353,\n            \"product_SKU\": \"cillum veniam labore\",\n            \"product_Name\": \"ut aliquip elit\",\n            \"product_Quantity\": -94875056\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Update"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "The data sent to this method does not satisfy the required validations.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"order_ID\": 2147291736,\n    \"order_Status\": 451581725,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": -53621571,\n            \"product_SKU\": \"esse id ut \",\n            \"product_Name\": \"est elit r\",\n            \"product_Quantity\": -60366077\n        },\n        {\n            \"product_ID\": 73221353,\n            \"product_SKU\": \"cillum veniam labore\",\n            \"product_Name\": \"ut aliquip elit\",\n            \"product_Quantity\": -94875056\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Update"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "The request to the database has returned no data.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"order_ID\": 2147291736,\n    \"order_Status\": 451581725,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": -53621571,\n            \"product_SKU\": \"esse id ut \",\n            \"product_Name\": \"est elit r\",\n            \"product_Quantity\": -60366077\n        },\n        {\n            \"product_ID\": 73221353,\n            \"product_SKU\": \"cillum veniam labore\",\n            \"product_Name\": \"ut aliquip elit\",\n            \"product_Quantity\": -94875056\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Update"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "Serveral internal errors were encountered while completing the tasks",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"order_ID\": 2147291736,\n    \"order_Status\": 451581725,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": -53621571,\n            \"product_SKU\": \"esse id ut \",\n            \"product_Name\": \"est elit r\",\n            \"product_Quantity\": -60366077\n        },\n        {\n            \"product_ID\": 73221353,\n            \"product_SKU\": \"cillum veniam labore\",\n            \"product_Name\": \"ut aliquip elit\",\n            \"product_Quantity\": -94875056\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Update"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "Deletes an existing order model.",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"order_ID\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Order/Delete",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Order",
+										"Delete"
+									]
+								},
+								"description": "1) Logging: No. No logger has been configured for this method.<br />\r\n2) Cache: No. Calls to this method will not be cached.<br />\r\n3) Compression: No. No compression method is used for the response.<br />"
+							},
+							"response": [
+								{
+									"name": "An object has successfully been deleted by the server.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"order_ID\": 1128723699,\n    \"order_Status\": 32375715,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": 75413076,\n            \"product_SKU\": \"quis magna nulla\",\n            \"product_Name\": \"voluptate labore occaecat dolor\",\n            \"product_Quantity\": -25017463\n        },\n        {\n            \"product_ID\": -13845849,\n            \"product_SKU\": \"ulla\",\n            \"product_Name\": \"et magna consequat\",\n            \"product_Quantity\": -65593737\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Delete",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Delete"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "The data sent to this method does not satisfy the required validations.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"order_ID\": 1128723699,\n    \"order_Status\": 32375715,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": 75413076,\n            \"product_SKU\": \"quis magna nulla\",\n            \"product_Name\": \"voluptate labore occaecat dolor\",\n            \"product_Quantity\": -25017463\n        },\n        {\n            \"product_ID\": -13845849,\n            \"product_SKU\": \"ulla\",\n            \"product_Name\": \"et magna consequat\",\n            \"product_Quantity\": -65593737\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Delete",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Delete"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "The request to the database has returned no data.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"order_ID\": 1128723699,\n    \"order_Status\": 32375715,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": 75413076,\n            \"product_SKU\": \"quis magna nulla\",\n            \"product_Name\": \"voluptate labore occaecat dolor\",\n            \"product_Quantity\": -25017463\n        },\n        {\n            \"product_ID\": -13845849,\n            \"product_SKU\": \"ulla\",\n            \"product_Name\": \"et magna consequat\",\n            \"product_Quantity\": -65593737\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Delete",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Delete"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "Serveral internal errors were encountered while completing the tasks",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"order_ID\": 1128723699,\n    \"order_Status\": 32375715,\n    \"order_Product_List\": [\n        {\n            \"product_ID\": 75413076,\n            \"product_SKU\": \"quis magna nulla\",\n            \"product_Name\": \"voluptate labore occaecat dolor\",\n            \"product_Quantity\": -25017463\n        },\n        {\n            \"product_ID\": -13845849,\n            \"product_SKU\": \"ulla\",\n            \"product_Name\": \"et magna consequat\",\n            \"product_Quantity\": -65593737\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Order/Delete",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Order",
+												"Delete"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "Creates a new product.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product_Name\": \"\",\n    \"product_Quantity\": 0,\n    \"product_SKU\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Product/Create",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Product",
+										"Create"
+									]
+								},
+								"description": "1) Logging: No. No logger has been configured for this method.<br />\r\n2) Cache: No. Calls to this method will not be cached.<br />\r\n3) Compression: No. No compression method is used for the response.<br />"
+							},
+							"response": [
+								{
+									"name": "A new object has been successfully created by the server on the database.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_Name\": \"ut dolor pariatur\",\n    \"product_Quantity\": 657233255,\n    \"product_SKU\": \"dolore reprehenderit Ut mollit\",\n    \"product_ID\": -29640364\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Create"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "The data sent to this method does not satisfy the required validations.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_Name\": \"ut dolor pariatur\",\n    \"product_Quantity\": 657233255,\n    \"product_SKU\": \"dolore reprehenderit Ut mollit\",\n    \"product_ID\": -29640364\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Create"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "Serveral internal errors were encountered while completing the tasks",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_Name\": \"ut dolor pariatur\",\n    \"product_Quantity\": 657233255,\n    \"product_SKU\": \"dolore reprehenderit Ut mollit\",\n    \"product_ID\": -29640364\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Create"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "Gets a list of products.",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/Product/Read",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Product",
+										"Read"
+									]
+								},
+								"description": "1) Logging: No. No logger has been configured for this method.<br />\r\n2) Cache: No. Calls to this method will not be cached.<br />\r\n3) Compression: No. No compression method is used for the response.<br />"
+							},
+							"response": [
+								{
+									"name": "The server has successfully retrieved data present on the database.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Read",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Read"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "The request to the database has returned no data.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Read",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Read"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "Serveral internal errors were encountered while completing the tasks",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Read",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Read"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "Updates an existing product model.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product_ID\": 0,\n    \"product_Name\": \"\",\n    \"product_Quantity\": 0,\n    \"product_SKU\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Product/Update",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Product",
+										"Update"
+									]
+								},
+								"description": "1) Logging: No. No logger has been configured for this method.<br />\r\n2) Cache: No. Calls to this method will not be cached.<br />\r\n3) Compression: No. No compression method is used for the response.<br />"
+							},
+							"response": [
+								{
+									"name": "The information on the database has been updated by the server.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_ID\": 1966557953,\n    \"product_Name\": \"ex\",\n    \"product_Quantity\": 2006453166,\n    \"product_SKU\": \"et\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Update"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "An additional order has been placed to fullfill the order.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_ID\": 1966557953,\n    \"product_Name\": \"ex\",\n    \"product_Quantity\": 2006453166,\n    \"product_SKU\": \"et\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Update"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "The data sent to this method does not satisfy the required validations.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_ID\": 1966557953,\n    \"product_Name\": \"ex\",\n    \"product_Quantity\": 2006453166,\n    \"product_SKU\": \"et\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Update"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "The request to the database has returned no data.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_ID\": 1966557953,\n    \"product_Name\": \"ex\",\n    \"product_Quantity\": 2006453166,\n    \"product_SKU\": \"et\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Update"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "Serveral internal errors were encountered while completing the tasks",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_ID\": 1966557953,\n    \"product_Name\": \"ex\",\n    \"product_Quantity\": 2006453166,\n    \"product_SKU\": \"et\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Update"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								}
+							]
+						},
+						{
+							"name": "Deletes an existing product model.",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"product_ID\": 0\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Product/Delete",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Product",
+										"Delete"
+									]
+								},
+								"description": "1) Logging: No. No logger has been configured for this method.<br />\r\n2) Cache: No. Calls to this method will not be cached.<br />\r\n3) Compression: No. No compression method is used for the response.<br />"
+							},
+							"response": [
+								{
+									"name": "An object has successfully been deleted by the server.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_ID\": 1047979534,\n    \"product_SKU\": \"ex consequat pariatur ut nostrud\",\n    \"product_Name\": \"adipisicing eu exercitation\",\n    \"product_Quantity\": 57049031\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Delete",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Delete"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "The data sent to this method does not satisfy the required validations.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_ID\": 1047979534,\n    \"product_SKU\": \"ex consequat pariatur ut nostrud\",\n    \"product_Name\": \"adipisicing eu exercitation\",\n    \"product_Quantity\": 57049031\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Delete",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Delete"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "The request to the database has returned no data.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_ID\": 1047979534,\n    \"product_SKU\": \"ex consequat pariatur ut nostrud\",\n    \"product_Name\": \"adipisicing eu exercitation\",\n    \"product_Quantity\": 57049031\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Delete",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Delete"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								},
+								{
+									"name": "Serveral internal errors were encountered while completing the tasks",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"product_ID\": 1047979534,\n    \"product_SKU\": \"ex consequat pariatur ut nostrud\",\n    \"product_Name\": \"adipisicing eu exercitation\",\n    \"product_Quantity\": 57049031\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Product/Delete",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Product",
+												"Delete"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"code\": -63088535,\n \"description\": \"irure sunt cupidatat ex\",\n \"model\": {}\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/",
+			"type": "string"
+		}
+	]
+}
