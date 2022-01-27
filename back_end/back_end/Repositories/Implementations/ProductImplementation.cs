@@ -10,7 +10,7 @@ namespace back_end.Repositories.Implementations
 {
     public class ProductImplementation : IProductInterface
     {
-        private List<ProductModel> product_Model_List = new List<ProductModel>();
+        private static List<ProductModel> product_Model_List = new List<ProductModel>();
 
 
 
@@ -20,7 +20,7 @@ namespace back_end.Repositories.Implementations
         public async Task<int> Create(ProductModel product_Model)
         {
             ProductModel database_Model = product_Model_List.Find(x => x.Product_SKU == product_Model.Product_SKU);
-            if (!String.IsNullOrWhiteSpace(database_Model.Product_SKU))
+            if (database_Model != null)
             { // Duplicate SKU
                 return RepositoryConstant.Error_Duplicated_SKU;
             }
@@ -55,7 +55,7 @@ namespace back_end.Repositories.Implementations
         public async Task<int> Update(ProductModel product_Model)
         {
             ProductModel database_Model = product_Model_List.Find(x => x.Product_ID == product_Model.Product_ID);
-            if (database_Model.Product_ID == 0)
+            if (database_Model != null)
             { // Not Found
                 return RepositoryConstant.Warning_Not_Found;
             }
@@ -78,7 +78,7 @@ namespace back_end.Repositories.Implementations
         public async Task<int> Delete(int product_ID)
         {
             ProductModel database_Model = product_Model_List.Find(x => x.Product_ID == product_ID);
-            if (database_Model.Product_ID == 0)
+            if (database_Model != null)
             { // Not Found
                 return RepositoryConstant.Warning_Not_Found;
             }

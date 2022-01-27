@@ -9,7 +9,7 @@ namespace back_end.Repositories.Implementations
 {
     public class OrderImplementation : IOrderInterface
     {
-        private List<OrderModel> order_Model_List = new List<OrderModel>();
+        private static List<OrderModel> order_Model_List = new List<OrderModel>();
 
 
 
@@ -49,7 +49,7 @@ namespace back_end.Repositories.Implementations
         public async Task<int> Update(OrderModel order_Model)
         {
             OrderModel database_Model = order_Model_List.Find(x => x.Order_ID == order_Model.Order_ID);
-            if (database_Model.Order_ID == 0)
+            if (database_Model != null)
             { // Not Found
                 return RepositoryConstant.Warning_Not_Found;
             }
@@ -73,7 +73,7 @@ namespace back_end.Repositories.Implementations
         public async Task<int> Delete(int order_ID)
         {
             OrderModel database_Model = order_Model_List.Find(x => x.Order_ID == order_ID);
-            if (database_Model.Order_ID == 0)
+            if (database_Model != null)
             { // Not Found
                 return RepositoryConstant.Warning_Not_Found;
             }
