@@ -32,7 +32,7 @@ namespace back_end.Controllers
         /// </remarks>
         [HttpPost("Create"), ApiExplorerSettings(GroupName = "v1")]
         [Consumes("application/json"), Produces("application/json")]
-        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OK, typeof(ResponseModel))]
+        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OKCreate, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequest, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, ControllerConstant.Status500InternalServerError, typeof(ResponseModel))]
         public async Task<IActionResult> Create([FromBody] CreateOrderViewModel create_Order_View_Model)
@@ -42,7 +42,7 @@ namespace back_end.Controllers
                 int interface_Response = await order_Interface.Create(create_Order_View_Model);
                 if (interface_Response == RepositoryConstant.Success_Task)
                 { // Returns a ok status code if an order has been deleted
-                    return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, true));
+                    return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OKCreate, true));
                 }
             }
             return StatusCode(StatusCodes.Status400BadRequest, new ResponseModel(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequest, ModelState));
@@ -58,7 +58,7 @@ namespace back_end.Controllers
         /// </remarks>
         [HttpGet("Read"), ApiExplorerSettings(GroupName = "v1")]
         [Consumes("application/json"), Produces("application/json")]
-        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OK, typeof(ResponseModel))]
+        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OKRead, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status404NotFound, ControllerConstant.Status404NotFound, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, ControllerConstant.Status500InternalServerError, typeof(ResponseModel))]
         public async Task<IActionResult> Read()
@@ -66,7 +66,7 @@ namespace back_end.Controllers
             List<OrderModel> interface_Response = await order_Interface.Read();
             if (interface_Response.Count != 0)
             { // Returns a ok status code if an order has been deleted
-                return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, interface_Response));
+                return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OKRead, interface_Response));
             }
             else
             {
@@ -84,7 +84,7 @@ namespace back_end.Controllers
         /// </remarks>
         [HttpPut("Update"), ApiExplorerSettings(GroupName = "v1")]
         [Consumes("application/json"), Produces("application/json")]
-        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OK, typeof(ResponseModel))]
+        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OKUpdated, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequest, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status404NotFound, ControllerConstant.Status404NotFound, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, ControllerConstant.Status500InternalServerError, typeof(ResponseModel))]
@@ -95,7 +95,7 @@ namespace back_end.Controllers
                 int interface_Response = await order_Interface.Update(update_Order_View_Model);
                 if (interface_Response == RepositoryConstant.Success_Task)
                 { // Returns a ok status code if an order has been deleted
-                    return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, true));
+                    return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OKUpdated, true));
                 }
                 else
                 { // Returns a not found status code if no order with that id was found
@@ -116,7 +116,7 @@ namespace back_end.Controllers
         /// </remarks>
         [HttpDelete("Delete"), ApiExplorerSettings(GroupName = "v1")]
         [Consumes("application/json"), Produces("application/json")]
-        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OK, typeof(ResponseModel))]
+        [SwaggerResponse(StatusCodes.Status200OK, ControllerConstant.Status200OKDeleted, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequest, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status404NotFound, ControllerConstant.Status404NotFound, typeof(ResponseModel))]
         [SwaggerResponse(StatusCodes.Status500InternalServerError, ControllerConstant.Status500InternalServerError, typeof(ResponseModel))]
@@ -127,7 +127,7 @@ namespace back_end.Controllers
                 int interface_Response = await order_Interface.Delete(delete_Order_View_Model.Order_ID);
                 if (interface_Response == RepositoryConstant.Success_Task)
                 { // Returns a ok status code if an order has been deleted
-                    return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, true));
+                    return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OKDeleted, true));
                 }
                 else
                 { // Returns a not found status code if no order with that id was found
