@@ -50,7 +50,7 @@ namespace back_end.Models
         {
             Code = code;
             Description = description;
-            Model = model.Keys.Select(k => model[k].Errors).First().Select(e => e.ErrorMessage); ;
+            Model = model.Keys.Where(k => model[k].Errors.Count > 0).Select(k => new { property = k, error = model[k].Errors[0].ErrorMessage });
         }
 
 
