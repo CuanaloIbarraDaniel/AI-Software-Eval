@@ -44,6 +44,10 @@ namespace back_end.Controllers
                 { // Returns a ok status code if an order has been deleted
                     return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, true));
                 }
+                else // Internal server error
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, new ResponseModel(StatusCodes.Status500InternalServerError, ControllerConstant.Status500InternalServerError, false));
+                }
             }
             return StatusCode(StatusCodes.Status400BadRequest, new ResponseModel(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequest, ModelState));
         }

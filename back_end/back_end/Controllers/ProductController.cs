@@ -46,6 +46,14 @@ namespace back_end.Controllers
                 { // Returns a ok status code if an product has been deleted
                     return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, true));
                 }
+                else if (interface_Response == RepositoryConstant.Error_Duplicated_SKU) // The value is duplicated
+                {
+                    return StatusCode(StatusCodes.Status400BadRequest, new ResponseModel(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequestDuplicatedSKU, false));
+                }
+                else // Internal server error
+                {
+                    return StatusCode(StatusCodes.Status500InternalServerError, new ResponseModel(StatusCodes.Status500InternalServerError, ControllerConstant.Status500InternalServerError, false));
+                }
             }
             return StatusCode(StatusCodes.Status400BadRequest, new ResponseModel(StatusCodes.Status400BadRequest, ControllerConstant.Status400BadRequest, ModelState));
         }
@@ -66,9 +74,9 @@ namespace back_end.Controllers
         public async Task<IActionResult> Read()
         {
             List<ProductModel> interface_Response = await product_Interface.Read();
-            if (interface_Response[0].Product_ID == 0)
+            if (interface_Response.Count != 0)
             { // Returns a ok status code if an product has been deleted
-                return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, true));
+                return StatusCode(StatusCodes.Status200OK, new ResponseModel(StatusCodes.Status200OK, ControllerConstant.Status200OK, interface_Response));
             }
             else
             {
